@@ -1,0 +1,16 @@
+E:\COURSES\.NET Core\Projetos\DiagnosticoPrevio_IMC\DiagnosticoPrevio_IMC\bin\Debug\net5.0\DiagnosticoPrevio_IMC.exe
+E:\COURSES\.NET Core\Projetos\DiagnosticoPrevio_IMC\DiagnosticoPrevio_IMC\bin\Debug\net5.0\DiagnosticoPrevio_IMC.deps.json
+E:\COURSES\.NET Core\Projetos\DiagnosticoPrevio_IMC\DiagnosticoPrevio_IMC\bin\Debug\net5.0\DiagnosticoPrevio_IMC.runtimeconfig.json
+E:\COURSES\.NET Core\Projetos\DiagnosticoPrevio_IMC\DiagnosticoPrevio_IMC\bin\Debug\net5.0\DiagnosticoPrevio_IMC.runtimeconfig.dev.json
+E:\COURSES\.NET Core\Projetos\DiagnosticoPrevio_IMC\DiagnosticoPrevio_IMC\bin\Debug\net5.0\DiagnosticoPrevio_IMC.dll
+E:\COURSES\.NET Core\Projetos\DiagnosticoPrevio_IMC\DiagnosticoPrevio_IMC\bin\Debug\net5.0\DiagnosticoPrevio_IMC.pdb
+E:\COURSES\.NET Core\Projetos\DiagnosticoPrevio_IMC\DiagnosticoPrevio_IMC\obj\Debug\net5.0\DiagnosticoPrevio_IMC.csproj.AssemblyReference.cache
+E:\COURSES\.NET Core\Projetos\DiagnosticoPrevio_IMC\DiagnosticoPrevio_IMC\obj\Debug\net5.0\DiagnosticoPrevio_IMC.GeneratedMSBuildEditorConfig.editorconfig
+E:\COURSES\.NET Core\Projetos\DiagnosticoPrevio_IMC\DiagnosticoPrevio_IMC\obj\Debug\net5.0\DiagnosticoPrevio_IMC.AssemblyInfoInputs.cache
+E:\COURSES\.NET Core\Projetos\DiagnosticoPrevio_IMC\DiagnosticoPrevio_IMC\obj\Debug\net5.0\DiagnosticoPrevio_IMC.AssemblyInfo.cs
+E:\COURSES\.NET Core\Projetos\DiagnosticoPrevio_IMC\DiagnosticoPrevio_IMC\obj\Debug\net5.0\DiagnosticoPrevio_IMC.csproj.CoreCompileInputs.cache
+E:\COURSES\.NET Core\Projetos\DiagnosticoPrevio_IMC\DiagnosticoPrevio_IMC\obj\Debug\net5.0\DiagnosticoPrevio_IMC.dll
+E:\COURSES\.NET Core\Projetos\DiagnosticoPrevio_IMC\DiagnosticoPrevio_IMC\obj\Debug\net5.0\refint\DiagnosticoPrevio_IMC.dll
+E:\COURSES\.NET Core\Projetos\DiagnosticoPrevio_IMC\DiagnosticoPrevio_IMC\obj\Debug\net5.0\DiagnosticoPrevio_IMC.pdb
+E:\COURSES\.NET Core\Projetos\DiagnosticoPrevio_IMC\DiagnosticoPrevio_IMC\obj\Debug\net5.0\DiagnosticoPrevio_IMC.genruntimeconfig.cache
+E:\COURSES\.NET Core\Projetos\DiagnosticoPrevio_IMC\DiagnosticoPrevio_IMC\obj\Debug\net5.0\ref\DiagnosticoPrevio_IMC.dll
