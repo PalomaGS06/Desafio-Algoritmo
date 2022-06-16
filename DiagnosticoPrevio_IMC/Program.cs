@@ -11,15 +11,22 @@ namespace DiagnosticoPrevio_IMC
             // inserindo/declarando as variáveis. Algumas são iniciadas com valor nulo. 
             double altura, peso, imc;
             int idade;
-            string nome, sexo, categoria = null, classificacao = null, riscos = null, recomendacao = null, tentativa;
+            string nome, sexo, categoria = null, classificacao = null, riscos = null, recomendacao = null, tentativa, label1;
 
             //inserindo dados dentro de variáveis:
-                Console.Write(" \t\n Seja bem vindo(a)! Para ver seus resultados do diagnóstico prévio,\n" +
-                               " primeiramente, preenche seus dados abaixo: \n");
-
+                Console.Write(" \t Seja Bem Vindo(a)!\n " +
+                            " Para ver seus resultados do Diagnóstico Prévio,\n" +
+                            " primeiramente, preencha seus dados abaixo: \n");
+          do { 
                     //Nome
                 Console.Write("\n Digite seu nome completo: ");
                 nome = Console.ReadLine();
+
+            while (string.IsNullOrWhiteSpace(nome))
+                {
+                    Console.WriteLine("Nome inexistente! Por favor, insira novamente: ");
+                    nome = Console.ReadLine();
+                }
 
                     //Sexo
                 Console.Write("\n Digite seu sexo (M para masculino e F para feminino): ");
@@ -158,17 +165,21 @@ namespace DiagnosticoPrevio_IMC
                               $"Peso:  {Math.Round(peso, 2)}\n " +
                               $"Categoria:  {categoria}\n\n\n " +
                               $"IMC Desejável:  entre 20 a 24\n\n " +
-                              $"Resultado IMC:  {Math.Round(imc,1)} - {classificacao} " +
+                              $"Resultado IMC:  {Math.Round(imc,1)}\n\n " +
+                              $"Classificação IMC:  <b>{classificacao}</b>\n\n" +
                               $"Riscos:  {riscos}\n\n " +
                               $"Recomendação Inicial:  {recomendacao}\n\n\n");
 
 
             Console.WriteLine("Deseja realizar o Diagnóstico Prévio outra vez? Digite 'S' para confirmar ou 'N' para finalizar: ");
             tentativa = Console.ReadLine();
-            while(tentativa.ToUpper() == "S")
-            {
-                Console.Clear();
-            }
+                
+            Console.Clear();
+          }
+            while(tentativa.ToUpper() == "S");
+            
+                
+            
         }
     }
 }
