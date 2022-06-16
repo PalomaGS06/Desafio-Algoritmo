@@ -95,81 +95,58 @@ namespace DiagnosticoPrevio_IMC
                     //Cálculo IMC
             imc = (peso /Math.Pow(altura,2));
 
-                   //Riscos
+            //Riscos, Recomendação inicial e Classificação
             if (imc < 20)
             {
+                classificacao = "Abaixo do Peso Ideal";
+
                 riscos = "Muitas complicações de saúde como doenças pulmonares e \n" +
                      " cardiovasculares podem estar associadas ao baixo peso.";
-            }
-            if (imc >= 20 && imc <= 24)
-            {
-                riscos = "Seu peso está ideal para suas referências.";
-            }
-            if (imc >= 25 && imc <= 29)
-            {
-                riscos = "Aumento de peso apresenta risco moderado para outras doenças\n" +
-                         " crônicas e cardiovasculares.";
-            }
-            if (imc >= 30 && imc <= 35)
-            {
-                riscos = "Quem tem obesidade vai estar mais exposto a doenças graves e ao\n" +
-                         " risco de mortalidade.";
-            }
-            if (imc > 35)
-            {
-                riscos = "O obeso mórbido vive menos, tem alto risco de mortalidade geral\n" +
-                         " por diversas causas.";
-            }
 
-                    //Recomendação inicial
-            if (imc < 20)
-            {
                 recomendacao = "Inclua carboidratos simples em sua dieta, além de proteínas -\n" +
                                " indispensáveis para ganho de massa magra. Procure um profissional.";
             }
             if (imc >= 20 && imc <= 24)
             {
+                classificacao = "Peso Normal";
+
+                riscos = "Seu peso está ideal para suas referências.";
+
                 recomendacao = "Mantenha uma dieta saudável e faça seus exames periódicos.";
             }
             if (imc >= 25 && imc <= 29)
             {
+                classificacao = "Excesso de Peso";
+
+                riscos = "Aumento de peso apresenta risco moderado para outras doenças\n" +
+                         " crônicas e cardiovasculares.";
+
                 recomendacao = "Adote um tratamento baseado em dieta balanceada, exercício físico\n" +
                                " e medicação. A ajuda de um profissional pode ser interessante.";
             }
             if (imc >= 30 && imc <= 35)
             {
+                classificacao = "Obesidade";
+
+                riscos = "Quem tem obesidade vai estar mais exposto a doenças graves e ao\n" +
+                         " risco de mortalidade.";
+
                 recomendacao = "Adote uma dieta alimentar rigorosa, com o acompanhamento de um\n" +
                                " nutricionista e um médico especialista(endócrino).";
             }
             if (imc > 35)
             {
+                classificacao = "Super Obesidade";
+
+                riscos = "O obeso mórbido vive menos, tem alto risco de mortalidade geral\n" +
+                         " por diversas causas.";
+
                 recomendacao = "Procure com urgência o acompanhamento de um nutricionista para\n" +
                                " realizar reeducação alimentar, um psicólogo e um médico" +
                                " especialista(endócrino).";
-            }
 
-            //Classificação     
-            if (imc < 20)
-            {
-                classificacao = "Abaixo do Peso Ideal";
             }
-            if (imc >= 20 && imc <= 24)
-            {
-                classificacao = "Peso Normal";
-            }
-            if (imc >= 25 && imc <= 29)
-            {
-                classificacao = "Excesso de Peso";
-            }
-            if (imc >= 30 && imc <= 35)
-            {
-                classificacao = "Obesidade";
-            }
-            if (imc > 35)
-            {
-                classificacao = "Super Obesidade";
-            }
-
+       
             Console.Clear();
 
             Console.WriteLine("\n\t DIAGNÓSTICO PRÉVIO\n\n ");
