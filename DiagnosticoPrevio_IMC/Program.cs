@@ -11,18 +11,19 @@ namespace DiagnosticoPrevio_IMC
             // inserindo/declarando as variáveis. Algumas são iniciadas com valor nulo. 
             double altura, peso, imc;
             int idade;
-            string nome, sexo, categoria = null, classificacao = null, riscos = null, recomendacao = null, tentativa;
+            string nome, sexo, categoria = null, classificacao = null, riscos = null, recomendacao = null, tentativa, enter;
 
             do {
 
-                //inserindo dados dentro de variáveis:
-                Console.Write(" \t Seja Bem Vindo(a)!\n " +
-                          " Para ver seus resultados do Diagnóstico Prévio,\n" +
-                          " primeiramente, preencha seus dados abaixo: \n");
-                do
-                {
+                        //inserindo dados dentro de variáveis:
+                 Console.WriteLine(" \t Seja Bem Vindo(a)! Aperte a tecla ENTER para começar! \n ");
+                 enter = Console.ReadLine();
+
+                 Console.Write( " Para gerarmos seu Diagnóstico Prévio, preencha seus dados abaixo: \n"); 
+
+
                     //Nome
-                    Console.Write("\n Digite seu nome completo: ");
+                Console.Write("\n Digite seu nome completo: ");
                 nome = Console.ReadLine();
 
             while (string.IsNullOrWhiteSpace(nome))
@@ -153,6 +154,11 @@ namespace DiagnosticoPrevio_IMC
         static string Classificacao (double imc)
         {
             string rating = null;
+
+            if (imc < 20)
+            {
+                rating = "Abaixo do Peso Ideal";
+            }
 
             if (imc >= 20 && imc <= 24)
             {
