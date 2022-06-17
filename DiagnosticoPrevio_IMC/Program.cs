@@ -11,20 +11,23 @@ namespace DiagnosticoPrevio_IMC
             // inserindo/declarando as variáveis. Algumas são iniciadas com valor nulo. 
             double altura, peso, imc;
             int idade;
-            string nome, sexo, categoria = null, classificacao = null, riscos = null, recomendacao = null, tentativa, label1;
+            string nome, sexo, categoria = null, classificacao = null, riscos = null, recomendacao = null, tentativa;
 
-            //inserindo dados dentro de variáveis:
+            do {
+
+                //inserindo dados dentro de variáveis:
                 Console.Write(" \t Seja Bem Vindo(a)!\n " +
-                            " Para ver seus resultados do Diagnóstico Prévio,\n" +
-                            " primeiramente, preencha seus dados abaixo: \n");
-          do { 
+                          " Para ver seus resultados do Diagnóstico Prévio,\n" +
+                          " primeiramente, preencha seus dados abaixo: \n");
+                do
+                {
                     //Nome
-                Console.Write("\n Digite seu nome completo: ");
+                    Console.Write("\n Digite seu nome completo: ");
                 nome = Console.ReadLine();
 
             while (string.IsNullOrWhiteSpace(nome))
                 {
-                    Console.WriteLine("Nome inexistente! Por favor, insira novamente: ");
+                    Console.Write("Nome inexistente! Por favor, insira novamente: ");
                     nome = Console.ReadLine();
                 }
 
@@ -87,7 +90,7 @@ namespace DiagnosticoPrevio_IMC
             {
                 Console.Clear();
 
-                Console.Write("Peso inválido ! Por favor, tente novamente: ");
+                Console.Write("Peso inválido! Por favor, tente novamente: ");
                 peso = double.Parse(Console.ReadLine().Replace(".", ",").ToString());
                 Thread.CurrentThread.CurrentCulture = new CultureInfo("pt");
             }
@@ -99,60 +102,17 @@ namespace DiagnosticoPrevio_IMC
             if (idade > 65) { categoria = "Idoso"; }
 
 
-                    //Cálculo IMC
-            imc = (peso /Math.Pow(altura,2));
+                //Funções sendo chamadas e atribuídas por variáveis:
 
-            //Riscos, Recomendação inicial e Classificação
-            if (imc < 20)
-            {
-                classificacao = "Abaixo do Peso Ideal";
+                    imc = IMC(peso, altura);
 
-                riscos = "Muitas complicações de saúde como doenças pulmonares e \n" +
-                     " cardiovasculares podem estar associadas ao baixo peso.";
+                    classificacao = Classificacao(imc);
 
-                recomendacao = "Inclua carboidratos simples em sua dieta, além de proteínas -\n" +
-                               " indispensáveis para ganho de massa magra. Procure um profissional.";
-            }
-            if (imc >= 20 && imc <= 24)
-            {
-                classificacao = "Peso Normal";
+                    riscos = Riscos(imc);
 
-                riscos = "Seu peso está ideal para suas referências.";
-
-                recomendacao = "Mantenha uma dieta saudável e faça seus exames periódicos.";
-            }
-            if (imc >= 25 && imc <= 29)
-            {
-                classificacao = "Excesso de Peso";
-
-                riscos = "Aumento de peso apresenta risco moderado para outras doenças\n" +
-                         " crônicas e cardiovasculares.";
-
-                recomendacao = "Adote um tratamento baseado em dieta balanceada, exercício físico\n" +
-                               " e medicação. A ajuda de um profissional pode ser interessante.";
-            }
-            if (imc >= 30 && imc <= 35)
-            {
-                classificacao = "Obesidade";
-
-                riscos = "Quem tem obesidade vai estar mais exposto a doenças graves e ao\n" +
-                         " risco de mortalidade.";
-
-                recomendacao = "Adote uma dieta alimentar rigorosa, com o acompanhamento de um\n" +
-                               " nutricionista e um médico especialista(endócrino).";
-            }
-            if (imc > 35)
-            {
-                classificacao = "Super Obesidade";
-
-                riscos = "O obeso mórbido vive menos, tem alto risco de mortalidade geral\n" +
-                         " por diversas causas.";
-
-                recomendacao = "Procure com urgência o acompanhamento de um nutricionista para\n" +
-                               " realizar reeducação alimentar, um psicólogo e um médico" +
-                               " especialista(endócrino).";
-
-            }
+                    recomendacao = Recomendacao(imc);
+               
+    
        
             Console.Clear();
 
@@ -161,14 +121,14 @@ namespace DiagnosticoPrevio_IMC
             Console.WriteLine($" Nome:  {nome}\n " +
                               $"Sexo:  {sexo}\n " +
                               $"Idade:  {idade}\n " +
-                              $"Altura:  {Math.Round(altura, 2)}\n " +
-                              $"Peso:  {Math.Round(peso, 2)}\n " +
+                              $"Altura:  {Math.Round(altura, 2)} m\n " +
+                              $"Peso:  {Math.Round(peso, 2)} Kg\n " +
                               $"Categoria:  {categoria}\n\n\n " +
                               $"IMC Desejável:  entre 20 a 24\n\n " +
                               $"Resultado IMC:  {Math.Round(imc,1)}\n\n " +
-                              $"Classificação IMC:  <b>{classificacao}</b>\n\n" +
+                              $"Classificação IMC:  {classificacao}\n\n " +
                               $"Riscos:  {riscos}\n\n " +
-                              $"Recomendação Inicial:  {recomendacao}\n\n\n");
+                              $"Recomendação Inicial:  {recomendacao}\n\n\n ");
 
 
             Console.WriteLine("Deseja realizar o Diagnóstico Prévio outra vez? Digite 'S' para confirmar ou 'N' para finalizar: ");
@@ -176,10 +136,126 @@ namespace DiagnosticoPrevio_IMC
                 
             Console.Clear();
           }
-            while(tentativa.ToUpper() == "S");
+            while (tentativa.ToUpper() == "S");
             
-                
-            
+
         }
+
+        static double IMC (double peso, double altura)
+        {
+            double imc;
+            imc = (peso / Math.Pow(altura, 2));
+
+            return imc;
+
+        }
+
+        static string Classificacao (double imc)
+        {
+            string rating = null;
+
+            if (imc >= 20 && imc <= 24)
+            {
+                rating = "Peso Normal";
+            }
+
+            if (imc >= 25 && imc <= 29)
+            {
+               rating = "Excesso de Peso";
+            }
+
+            if (imc >= 30 && imc <= 35)
+            {
+                rating = "Obesidade";
+            }
+            if (imc > 35)
+            {
+              rating = "Super Obesidade";
+
+            }
+
+            return rating;
+        } 
+
+
+        static string Riscos (double imc)
+        {
+            string effect = null;
+
+
+            if (imc < 20)
+            {
+              effect = "Muitas complicações de saúde como doenças pulmonares e \n" +
+                     " cardiovasculares podem estar associadas ao baixo peso.";    
+            }
+
+            if (imc >= 20 && imc <= 24)
+            {         
+                effect = "Seu peso está ideal para suas referências.";
+            }
+
+            if (imc >= 25 && imc <= 29)
+            {             
+                effect = "Aumento de peso apresenta risco moderado para outras doenças\n" +
+                         " crônicas e cardiovasculares.";      
+            }
+
+            if (imc >= 30 && imc <= 35)
+            {       
+                effect = "Quem tem obesidade vai estar mais exposto a doenças graves e ao\n" +
+                         " risco de mortalidade.";      
+            }
+
+            if (imc > 35)
+            {    
+                effect = "O obeso mórbido vive menos, tem alto risco de mortalidade geral\n" +
+                         " por diversas causas.";           
+            }
+
+            return effect;
+
+        }
+
+
+        static string Recomendacao (double imc)
+        {
+
+            string advice = null;
+
+            if (imc < 20)
+            {     
+                advice = "Inclua carboidratos simples em sua dieta, além de proteínas -\n" +
+                               " indispensáveis para ganho de massa magra. Procure um profissional.";
+            }
+
+            if (imc >= 20 && imc <= 24)
+            {     
+                advice = "Mantenha uma dieta saudável e faça seus exames periódicos.";
+            }
+
+            if (imc >= 25 && imc <= 29)
+            {     
+                advice = "Adote um tratamento baseado em dieta balanceada, exercício físico\n" +
+                               " e medicação. A ajuda de um profissional pode ser interessante.";
+            }
+
+            if (imc >= 30 && imc <= 35)
+            {     
+                advice = "Adote uma dieta alimentar rigorosa, com o acompanhamento de um\n" +
+                               " nutricionista e um médico especialista(endócrino).";
+            }
+
+            if (imc > 35)
+            { 
+                advice = "Procure com urgência o acompanhamento de um nutricionista para\n" +
+                               " realizar reeducação alimentar, um psicólogo e um médico" +
+                               " especialista(endócrino).";
+            }
+
+            return advice;
+        }
+
+
+
     }
 }
