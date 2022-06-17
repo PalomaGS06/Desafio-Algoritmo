@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Threading;
+using System.Text.RegularExpressions;
 using System.Globalization;
+
 
 namespace DiagnosticoPrevio_IMC
 {
@@ -11,14 +12,15 @@ namespace DiagnosticoPrevio_IMC
             // inserindo/declarando as variáveis. Algumas são iniciadas com valor nulo. 
             double altura, peso, imc;
             int idade;
-            string nome, sexo, categoria = null, classificacao = null, riscos = null, recomendacao = null, tentativa, enter;
+            string nome, sexo, categoria = null, classificacao = null, riscos = null, recomendacao = null, tentativa;
 
             do
             {
 
                 //inserindo dados dentro de variáveis:
-                Console.WriteLine(" \t Seja Bem Vindo(a)! Aperte a tecla ENTER para começar! \n ");
-                enter = Console.ReadLine();
+                Console.WriteLine(" \t *-* Seja Bem Vindo(a)! Aperte qualquer tecla para começar! *-* \n ");
+                Console.ReadKey();
+                Console.Clear();
 
                 Console.Write(" Para gerarmos seu Diagnóstico Prévio, preencha seus dados abaixo: \n");
 
@@ -29,16 +31,25 @@ namespace DiagnosticoPrevio_IMC
 
                 while (string.IsNullOrWhiteSpace(nome))
                 {
-                    Console.Write("Nome inexistente! Por favor, insira novamente: ");
+                    Console.Clear();
+                    Console.Write("Nome vazio! Por favor, digite de novo: ");
                     nome = Console.ReadLine();
                 }
+
+                Regex letra = new Regex(@"[A-Z,a-z]");
+                    if (!letra.IsMatch(nome))
+                {
+                    Console.Clear();
+                    Console.Write("Nome inexistente! Por favor, insira novamente: ");
+                    Console.ReadLine();
+                }
+
 
                 //Sexo
                 Console.Write("\n Digite seu sexo (M para masculino e F para feminino): ");
                 sexo = Console.ReadLine();
 
                 while (sexo.ToUpper() != "F" && sexo.ToUpper() != "M")
-
                 {
                     Console.Clear();
 
@@ -60,7 +71,7 @@ namespace DiagnosticoPrevio_IMC
                 Console.Write("\n Digite sua idade: ");
                 idade = int.Parse(Console.ReadLine());
 
-                while (idade <= 0 && idade > 150)
+                while (idade <= 0 || idade > 150)
                 {
                     Console.Clear();
 
@@ -70,31 +81,27 @@ namespace DiagnosticoPrevio_IMC
 
 
                 //Altura
-                Console.Write("\n Digite sua altura, em metros(e utilize vírgula (,) para separar as medidas): ");
-                altura = double.Parse(Console.ReadLine().Replace(".", ",").ToString());
-                Thread.CurrentThread.CurrentCulture = new CultureInfo("pt");
-
-                while (altura <= 0 || altura >= 4.0)
+                Console.Write("\n Digite sua altura, em metros: ");
+                double.TryParse(Console.ReadLine().Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out altura);
+    
+                while (altura <= 0 || altura >= 2.7)
                 {
                     Console.Clear();
 
                     Console.Write("Altura inválida! Por favor, tente novamente: ");
-                    altura = double.Parse(Console.ReadLine().Replace(".", ",").ToString());
-                    Thread.CurrentThread.CurrentCulture = new CultureInfo("pt");
+                    double.TryParse(Console.ReadLine().Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out altura);
                 }
 
                 //Peso
-                Console.Write("\n Digite seu peso, em Kg(e utilize vírgula (,) para separar o valor do peso): ");
-                peso = double.Parse(Console.ReadLine().Replace(".", ",").ToString());
-                Thread.CurrentThread.CurrentCulture = new CultureInfo("pt");
+                Console.Write("\n Digite seu peso, em Kg: ");
+                double.TryParse(Console.ReadLine().Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out peso);
 
-                while (peso <= 0 || peso >= 300)
+                while (peso <= 0 || peso >= 700)
                 {
                     Console.Clear();
 
                     Console.Write("Peso inválido! Por favor, tente novamente: ");
-                    peso = double.Parse(Console.ReadLine().Replace(".", ",").ToString());
-                    Thread.CurrentThread.CurrentCulture = new CultureInfo("pt");
+                    double.TryParse(Console.ReadLine().Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out peso);
                 }
 
                 //Categoria
@@ -275,7 +282,10 @@ namespace DiagnosticoPrevio_IMC
             return advice;
         }
 
+        //static void Titulo()
+        //{
 
+        //}
 
     }
 }
