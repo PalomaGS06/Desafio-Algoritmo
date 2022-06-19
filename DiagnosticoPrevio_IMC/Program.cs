@@ -12,117 +12,141 @@ namespace DiagnosticoPrevio_IMC
             // inserindo/declarando as variáveis. Algumas são iniciadas com valor nulo. 
             double altura, peso, imc;
             int idade;
-            bool valida_dados;
-            string nome, sexo, categoria, classificacao, riscos, recomendacao, tentativa;
+            string nome, sexo, categoria, classificacao, riscos, recomendacao, tentativa=null;
 
             do
             {
-                Titulo();
-               
-                //inserindo dados dentro de variáveis:
-                Console.WriteLine($"» Seja Bem Vindo(a)! «".PadLeft( 71 , ' '));
-                Console.WriteLine($"Aperte qualquer tecla para começar!  \n\n".PadLeft( 82 , ' '));
-
-                Rodape();
-
-                Console.ReadKey();
                 
-                Console.Clear();
 
-                Titulo();
+                    Titulo();
 
-                Console.Write(" \nPara gerarmos seu Diagnóstico Prévio, preencha seus dados abaixo: \n\n");
-                            
+                    //inserindo dados dentro de variáveis:
+                    Console.WriteLine($"» Seja Bem Vindo(a)! «".PadLeft(71, ' '));
+                    Console.WriteLine($"Aperte qualquer tecla para começar!  \n\n".PadLeft(82, ' '));
 
-                //Nome
-                Console.Write("\n Digite seu nome completo: ");
-                nome = Console.ReadLine();
+                    Rodape();
 
-                while (string.IsNullOrWhiteSpace(nome))
+                    Console.ReadKey();
+
+                    Console.Clear();
+                do
                 {
-                    Console.ForegroundColor = ConsoleColor.Black;
-                    Console.BackgroundColor = ConsoleColor.White;
-                    Console.WriteLine("\n  Nome vazio! Por favor, digite de novo:");  
-                    Console.ResetColor();
+
+                    Titulo();
+
+                    Console.Write(" \nPara gerarmos seu Diagnóstico Prévio, preencha seus dados abaixo: \n\n");
+
+
+                    //Nome
+                    Console.Write("\n Digite seu nome completo: ");
                     nome = Console.ReadLine();
-                  
-                }
 
-                Regex letra = new Regex(@"[A-Z,a-z]");
+                    while (string.IsNullOrWhiteSpace(nome))
+                    {
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.BackgroundColor = ConsoleColor.White;
+                        Console.WriteLine("\n  Nome vazio! Por favor, digite de novo:");
+                        Console.ResetColor();
+                        nome = Console.ReadLine();
+
+                    }
+
+                    Regex letra = new Regex(@"[A-Z,a-z]");
                     if (!letra.IsMatch(nome))
-                {
-                    Console.ForegroundColor = ConsoleColor.Black;
-                    Console.BackgroundColor = ConsoleColor.White;
-                    Console.WriteLine("\n  Nome inexistente! Por favor, insira novamente:");
-                    Console.ResetColor();
-                    Console.ReadLine();
-                }
+                    {
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.BackgroundColor = ConsoleColor.White;
+                        Console.WriteLine("\n  Nome inexistente! Por favor, insira novamente:");
+                        Console.ResetColor();
+                        Console.ReadLine();
+                    }
 
 
-                //Sexo
-                Console.Write("\n Digite seu sexo (M para masculino e F para feminino): ");
-                sexo = Console.ReadLine();
-
-                while (sexo.ToUpper() != "F" && sexo.ToUpper() != "M")
-                {
-                    Console.ForegroundColor = ConsoleColor.Black;
-                    Console.BackgroundColor = ConsoleColor.White;
-                    Console.WriteLine("\n  Dado inválido! por favor, tente novamente:");
-                    Console.ResetColor();
+                    //Sexo
+                    Console.Write("\n Digite seu sexo (M para masculino e F para feminino): ");
                     sexo = Console.ReadLine();
 
-                }
+                    while (sexo.ToUpper() != "F" && sexo.ToUpper() != "M")
+                    {
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.BackgroundColor = ConsoleColor.White;
+                        Console.WriteLine("\n  Dado inválido! por favor, tente novamente:");
+                        Console.ResetColor();
+                        sexo = Console.ReadLine();
 
-                if (sexo.ToUpper() == "F")
-                {
-                    sexo = "Feminino";
-                }
-                else if (sexo.ToUpper() == "M")
-                {
-                    sexo = "Masculino";
-                }
+                    }
 
-                //Idade
-                Console.Write("\n Digite sua idade: ");
-                int.TryParse(Console.ReadLine(), out idade);
+                    if (sexo.ToUpper() == "F")
+                    {
+                        sexo = "Feminino";
+                    }
+                    else if (sexo.ToUpper() == "M")
+                    {
+                        sexo = "Masculino";
+                    }
 
-                while (idade <= 0 || idade > 150)
-                {
-                    Console.ForegroundColor = ConsoleColor.Black;
-                    Console.BackgroundColor = ConsoleColor.White;
-                    Console.WriteLine("\n  Idade inválida! Por favor, tente novamente:");
-                    Console.ResetColor();
-                    idade = int.Parse(Console.ReadLine());
-                }
+                    //Idade
+                    Console.Write("\n Digite sua idade: ");
+                    int.TryParse(Console.ReadLine(), out idade);
+
+                    while (idade <= 0 || idade > 150)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.BackgroundColor = ConsoleColor.White;
+                        Console.WriteLine("\n  Idade inválida! Por favor, tente novamente:");
+                        Console.ResetColor();
+                        idade = int.Parse(Console.ReadLine());
+                    }
 
 
-                //Altura
-                Console.Write("\n Digite sua altura, em metros: ");
-                double.TryParse(Console.ReadLine().Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out altura);
-    
-                while (altura <= 0 || altura >= 2.7)
-                {
-                    Console.ForegroundColor = ConsoleColor.Black;
-                    Console.BackgroundColor = ConsoleColor.White;
-                    Console.WriteLine("\n  Altura inválida! Por favor, tente novamente:");
-                    Console.ResetColor();
+                    //Altura
+                    Console.Write("\n Digite sua altura, em metros: ");
                     double.TryParse(Console.ReadLine().Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out altura);
-                }
 
-                //Peso
-                Console.Write("\n Digite seu peso, em Kg: ");
-                double.TryParse(Console.ReadLine().Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out peso);
+                    while (altura <= 0 || altura >= 2.7)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.BackgroundColor = ConsoleColor.White;
+                        Console.WriteLine("\n  Altura inválida! Por favor, tente novamente:");
+                        Console.ResetColor();
+                        double.TryParse(Console.ReadLine().Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out altura);
+                    }
 
-                
-
-                while (peso <= 0 || peso >= 700)
-                {
-                    Console.ForegroundColor = ConsoleColor.Black;
-                    Console.BackgroundColor = ConsoleColor.White;
-                    Console.WriteLine("\n  Peso inválido! Por favor, tente novamente:");
-                    Console.ResetColor();
+                    //Peso
+                    Console.Write("\n Digite seu peso, em Kg: ");
                     double.TryParse(Console.ReadLine().Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out peso);
-                }
+
+
+
+                    while (peso <= 0 || peso >= 700)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.BackgroundColor = ConsoleColor.White;
+                        Console.WriteLine("\n  Peso inválido! Por favor, tente novamente:");
+                        Console.ResetColor();
+                        double.TryParse(Console.ReadLine().Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out peso);
+                    }
+                    Console.WriteLine("\n\n");
+                    Rodape();
+                    Console.WriteLine(" ");
+                    Console.Write("\t» Deseja confirmar seus dados? Digite 'S' para ver ser resultado ou 'N' para preencher de novo: « \n\n ");
+                    tentativa = Console.ReadLine();
+
+                    Console.Clear();
+
+                    while (tentativa.ToUpper() != "S" && tentativa.ToUpper() != "N")
+                    {
+                        Console.Write("  ");
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.BackgroundColor = ConsoleColor.White;
+                        Console.WriteLine("\n   Escolha inválida. Por favor, digite 'S' para avançar ou 'N' para preencher novamente: ");
+                        Console.ResetColor();
+                        tentativa = Console.ReadLine();
+                    }
+
+                } while (tentativa.ToUpper() == "N");
+                Console.Clear();
+
 
                 //Funções sendo chamadas e atribuídas por variáveis:              
 
@@ -163,8 +187,7 @@ namespace DiagnosticoPrevio_IMC
                     
                 Rodape();
                 Console.WriteLine(" ");
-                Console.Write("\t» Deseja realizar o Diagnóstico Prévio outra vez? Digite 'S' para confirmar ou 'N' para finalizar: « \n\n ");           
-              
+                Console.Write("\t» Deseja realizar o Diagnóstico Prévio outra vez? Digite 'S' para confirmar ou 'N' para finalizar: « \n\n ");                         
                 tentativa = Console.ReadLine();
                 
                 Console.Clear();
@@ -207,7 +230,7 @@ namespace DiagnosticoPrevio_IMC
 
         static double IMC (double peso, double altura)
         {
-            double imc=0;
+            double imc;
             imc = (peso / Math.Pow(altura, 2));
 
             return imc;
