@@ -2,13 +2,13 @@
 - Criar um algoritmo para gerar um Diagnóstico Prévio para o programa de emagrecimento, baseado no IMC;
 - Desafio proposto pelo curso de .Net em C# da Edusync, através do programa EntryPoint.NET.
 
-<h2 align="center"> Objetivos do Projeto: </h2>
+## Objetivos do Projeto: 
 - Através da fórmula do IMC(Índice de Massa Corporal): **IMC = Peso ÷ (Altura x Altura)** criar um algoritmo para calcular o IMC do usuário;
 - Gerar o resultado dos dados apresentados do usuário através das informações propostas no Desafio, de acordo com o resultado do cálculo do IMC;
 - Colocar na prática os conceitos trabalhados ao decorrer de todo o curso;
 - Código com boas práticas, indentação e bem comentado.
 
-<h2 align="center"> Tecnologias e Conceitos utilizados: </h2>
+## Tecnologias e Conceitos utilizados:
 - Visual Studio IDE;
 - Versão .NET 5.0;
 - Linguagem C#;
