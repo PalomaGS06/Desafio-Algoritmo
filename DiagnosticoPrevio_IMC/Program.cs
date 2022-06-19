@@ -12,11 +12,11 @@ namespace DiagnosticoPrevio_IMC
             // inserindo/declarando as variáveis. Algumas são iniciadas com valor nulo. 
             double altura, peso, imc;
             int idade;
+            bool valida_dados;
             string nome, sexo, categoria, classificacao, riscos, recomendacao, tentativa=null;
 
             do
-            {
-                
+            {             
 
                     Titulo();
 
@@ -66,7 +66,7 @@ namespace DiagnosticoPrevio_IMC
                     Console.Write("\n Digite seu sexo (M para masculino e F para feminino): ");
                     sexo = Console.ReadLine();
 
-                    while (sexo.ToUpper() != "F" && sexo.ToUpper() != "M")
+                    while ( sexo.ToUpper() != "F" && sexo.ToUpper() != "M")
                     {
                         Console.ForegroundColor = ConsoleColor.Black;
                         Console.BackgroundColor = ConsoleColor.White;
@@ -87,9 +87,9 @@ namespace DiagnosticoPrevio_IMC
 
                     //Idade
                     Console.Write("\n Digite sua idade: ");
-                    int.TryParse(Console.ReadLine(), out idade);
+                    valida_dados= int.TryParse(Console.ReadLine(), out idade);
 
-                    while (idade <= 0 || idade > 150)
+                    while (valida_dados == false || idade <= 0 || idade > 150)
                     {
                         Console.ForegroundColor = ConsoleColor.Black;
                         Console.BackgroundColor = ConsoleColor.White;
@@ -101,30 +101,30 @@ namespace DiagnosticoPrevio_IMC
 
                     //Altura
                     Console.Write("\n Digite sua altura, em metros: ");
-                    double.TryParse(Console.ReadLine().Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out altura);
+                   valida_dados = double.TryParse(Console.ReadLine().Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out altura);
 
-                    while (altura <= 0 || altura >= 2.7)
+                    while (valida_dados == false || altura <= 0 || altura >= 2.7)
                     {
                         Console.ForegroundColor = ConsoleColor.Black;
                         Console.BackgroundColor = ConsoleColor.White;
                         Console.WriteLine("\n  Altura inválida! Por favor, tente novamente:");
                         Console.ResetColor();
-                        double.TryParse(Console.ReadLine().Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out altura);
+                    valida_dados = double.TryParse(Console.ReadLine().Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out altura);
                     }
 
                     //Peso
                     Console.Write("\n Digite seu peso, em Kg: ");
-                    double.TryParse(Console.ReadLine().Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out peso);
+                    valida_dados = double.TryParse(Console.ReadLine().Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out peso);
 
 
 
-                    while (peso <= 0 || peso >= 700)
+                    while (valida_dados == false|| peso <= 0 || peso >= 700)
                     {
                         Console.ForegroundColor = ConsoleColor.Black;
                         Console.BackgroundColor = ConsoleColor.White;
                         Console.WriteLine("\n  Peso inválido! Por favor, tente novamente:");
                         Console.ResetColor();
-                        double.TryParse(Console.ReadLine().Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out peso);
+                       valida_dados = double.TryParse(Console.ReadLine().Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out peso);
                     }
                     Console.WriteLine("\n\n");
                     Rodape();
