@@ -246,24 +246,24 @@ namespace DiagnosticoPrevio_IMC
                 rating = "Abaixo do Peso Ideal";
             } 
 
-            if (imc >= 20 && imc <= 24)
+            else if (imc >= 20 && imc <= 24)
             {              
                 rating = "Peso Normal";               
             }
 
 
-            if (imc >= 25 && imc <= 29)
+            else if (imc >= 25 && imc <= 29)
             {          
                 rating = "Excesso de Peso";             
             }
-       
 
-            if (imc >= 30 && imc <= 35)
+
+            else if(imc >= 30 && imc <= 35)
             {               
                 rating = "Obesidade";           
             }
-           
-            if (imc > 35)
+
+            else if(imc > 35)
             {             
                 rating = "Super Obesidade";              
             }
@@ -317,30 +317,30 @@ namespace DiagnosticoPrevio_IMC
             string effect = null;
 
 
-            if (imc < 20)
+           if(imc < 20)
             {
               effect = "Muitas complicações de saúde como doenças pulmonares e \n" +
                      " cardiovasculares podem estar associadas ao baixo peso.";    
             }
 
-            if (imc >= 20 && imc <= 24)
+            else if(imc >= 20 && imc <= 24)
             {         
                 effect = "Seu peso está ideal para suas referências.";
             }
 
-            if (imc >= 25 && imc <= 29)
+            else if(imc >= 25 && imc <= 29)
             {             
                 effect = "Aumento de peso apresenta risco moderado para outras doenças\n" +
                          " crônicas e cardiovasculares.";      
             }
 
-            if (imc >= 30 && imc <= 35)
+            else if (imc >= 30 && imc <= 35)
             {       
                 effect = "Quem tem obesidade vai estar mais exposto a doenças graves e ao\n" +
                          " risco de mortalidade.";      
             }
 
-            if (imc > 35)
+            else if (imc > 35)
             {    
                 effect = "O obeso mórbido vive menos, tem alto risco de mortalidade geral\n" +
                          " por diversas causas.";           
@@ -356,30 +356,30 @@ namespace DiagnosticoPrevio_IMC
 
             string advice = null;
 
-            if (imc < 20)
+           if (imc < 20)
             {     
                 advice = "Inclua carboidratos simples em sua dieta, além de proteínas -\n" +
                                " indispensáveis para ganho de massa magra. Procure um profissional.";
             }
 
-            if (imc >= 20 && imc <= 24)
+            else if (imc >= 20 && imc <= 24)
             {     
                 advice = "Mantenha uma dieta saudável e faça seus exames periódicos.";
             }
 
-            if (imc >= 25 && imc <= 29)
+            else if (imc >= 25 && imc <= 29)
             {     
                 advice = "Adote um tratamento baseado em dieta balanceada, exercício físico\n" +
                                " e medicação. A ajuda de um profissional pode ser interessante.";
             }
 
-            if (imc >= 30 && imc <= 35)
+            else if (imc >= 30 && imc <= 35)
             {     
                 advice = "Adote uma dieta alimentar rigorosa, com o acompanhamento de um\n" +
                                " nutricionista e um médico especialista(endócrino).";
             }
 
-            if (imc > 35)
+            else if (imc > 35)
             { 
                 advice = "Procure com urgência o acompanhamento de um nutricionista para\n" +
                                " realizar reeducação alimentar, um psicólogo e um médico" +
@@ -400,11 +400,11 @@ namespace DiagnosticoPrevio_IMC
 
             Console.ForegroundColor = ConsoleColor.Magenta;
 
-            Console.Write($" DIAGNÓSTICO PRÉVIO - IMC\n".PadLeft( 75 , ' '));
+            Console.Write($" DIAGNÓSTICO PRÉVIO - IMC\n".PadLeft( 73 , ' '));
 
             Console.ResetColor();
 
-            Console.Write($"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n".PadLeft(78, ' '));
+            Console.Write($"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n".PadLeft(76, ' '));
 
         }
         
