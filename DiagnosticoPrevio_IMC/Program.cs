@@ -54,7 +54,7 @@ namespace DiagnosticoPrevio_IMC
                         Console.BackgroundColor = ConsoleColor.White;
                         Console.Write("\n  Nome vazio! Por favor, digite de novo:");
                         Console.ResetColor();//A cor estabelecida acima é resetada, retornando a cor padrão
-                        Console.Write(" ");
+                        Console.Write("  ");
                         nome = Console.ReadLine(); //Pede para o usuário digitar o nome novamente
                     }
                     
@@ -68,12 +68,12 @@ namespace DiagnosticoPrevio_IMC
                          Console.BackgroundColor = ConsoleColor.White;
                          Console.Write("\n  Nome inexistente! Por favor, insira novamente:"); //Mensagem de erro caso o usuário digitar um número ou caractere
                          Console.ResetColor();
-                         Console.Write(" ");
+                         Console.Write("  ");
                          nome = Console.ReadLine(); //Permite o usuário digitar um valor válido no nome
                     }
                    
                     //Sexo a ser inserido pelo usuário
-                    Console.Write("\n Digite seu sexo (M para masculino e F para feminino): ");
+                    Console.Write("\n Digite seu sexo ('M' para masculino ou 'F' para feminino): ");
                     sexo = Console.ReadLine(); //Guarda o dado digitado na variável sexo e exibe posteriormente qual o gênero que o usuário digitou
                     
                     //Enquanto o usuário não digitar nem F e nem M, exibirá uma mensagem de erro pedindo para o mesmo tentar novamente
@@ -83,8 +83,9 @@ namespace DiagnosticoPrevio_IMC
                     {
                         Console.ForegroundColor = ConsoleColor.Black;
                         Console.BackgroundColor = ConsoleColor.White;
-                        Console.Write("\n  Dado inválido! por favor, tente novamente:");
+                        Console.Write("\n  Dado inválido! por favor, tente novamente apenas utilizando as letras 'M' ou 'F':");
                         Console.ResetColor();
+                        Console.Write("  ");
                         sexo = Console.ReadLine(); //Permite o usuário digitar um valor válido
 
                     }
@@ -108,9 +109,9 @@ namespace DiagnosticoPrevio_IMC
                     {
                         Console.ForegroundColor = ConsoleColor.Black;
                         Console.BackgroundColor = ConsoleColor.White;
-                        Console.Write("\n  Idade inválida! Por favor, tente novamente, utilize apenas números inteiros:");
+                        Console.Write("\n  Idade inválida! Por favor, tente novamente, utilize apenas números inteiros (entre 1 a 150 anos):");
                         Console.ResetColor();
-                        Console.Write(" ");
+                        Console.Write("  ");
                         valida_dados = int.TryParse(Console.ReadLine(), out idade); //Permite o usuário digitar o valor novamente
                     }
 
@@ -127,9 +128,9 @@ namespace DiagnosticoPrevio_IMC
                     {
                         Console.ForegroundColor = ConsoleColor.Black;
                         Console.BackgroundColor = ConsoleColor.White;
-                        Console.Write("\n  Altura inválida! Por favor, tente novamente, utilize apenas números inteiros ou com vírgula:");
+                        Console.Write("\n  Altura inválida! Por favor, tente novamente, utilize apenas números inteiros ou com vírgula (entre 1 a 2.7 m):");
                         Console.ResetColor();
-                        Console.Write(" ");
+                        Console.Write("  ");
                         //Permite ao usuário digitar novamente a altura, separando as casas decimais tanto com vírgula como com ponto
                         valida_dados = double.TryParse(Console.ReadLine().Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out altura);
                     }
@@ -144,9 +145,9 @@ namespace DiagnosticoPrevio_IMC
                     {
                         Console.ForegroundColor = ConsoleColor.Black;
                         Console.BackgroundColor = ConsoleColor.White;
-                        Console.Write("\n  Peso inválido! Por favor, tente novamente, utilize apenas números inteiros ou com vírgula:"); //Mensagem de erro
+                        Console.Write("\n  Peso inválido! Por favor, tente novamente, utilize apenas números inteiros ou com vírgula (entre 1 a 700 Kg):"); //Mensagem de erro
                         Console.ResetColor();
-                        Console.Write(" ");
+                        Console.Write("  ");
                         valida_dados = double.TryParse(Console.ReadLine().Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out peso);
                     }
 
@@ -168,8 +169,9 @@ namespace DiagnosticoPrevio_IMC
                         Console.Write("  ");
                         Console.ForegroundColor = ConsoleColor.Black;
                         Console.BackgroundColor = ConsoleColor.White;
-                        Console.WriteLine("\n   Escolha inválida. Por favor, digite 'S' para avançar ou 'N' para preencher novamente: ");
+                        Console.Write("\n   Escolha inválida. Por favor, digite 'S' para avançar ou 'N' para preencher novamente: ");
                         Console.ResetColor();
+                        Console.Write("  ");
                         tentativa = Console.ReadLine();
                        
                     }
@@ -236,6 +238,7 @@ namespace DiagnosticoPrevio_IMC
                     Console.BackgroundColor = ConsoleColor.White;
                     Console.WriteLine("\n   Escolha inválida. Por favor, digite 'S' para confirmar ou 'N' para finalizar o programa: ");
                     Console.ResetColor();
+                    Console.Write("  ");
                     tentativa = Console.ReadLine(); //Permitir que o usuário digite outra letra
                     Console.Clear();
                 }
