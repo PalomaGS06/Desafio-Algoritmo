@@ -166,6 +166,7 @@ namespace DiagnosticoPrevio_IMC
                         Console.WriteLine("\n   Escolha inválida. Por favor, digite 'S' para avançar ou 'N' para preencher novamente: ");
                         Console.ResetColor();
                         tentativa = Console.ReadLine();
+                       
                     }
 
                 } while (tentativa.ToUpper() == "N"); //Caso o usuário escolher N, o laço de repetição Do While voltará na primeira informação
@@ -231,8 +232,9 @@ namespace DiagnosticoPrevio_IMC
                     Console.WriteLine("\n   Escolha inválida. Por favor, digite 'S' para confirmar ou 'N' para finalizar o programa: ");
                     Console.ResetColor();
                     tentativa = Console.ReadLine(); //Permitir que o usuário digite outra letra
-                 }
-                  
+                    Console.Clear();
+                }
+
             }
             while (tentativa.ToUpper() == "S"); //Se for digitada a letra S, o programa reiniciará para um novo diagnóstico
 
@@ -258,7 +260,7 @@ namespace DiagnosticoPrevio_IMC
             string category = null; //variável iniciada como nula
             //Categorias correspondentes às idades definidas, através de uma estrutura condicional
             if (idade < 12) { category = "Infantil"; }
-            if (idade >= 12 && idade <= 20) { category = "Juvenil"; }
+            if (idade >= 12 && idade < 21) { category = "Juvenil"; }
             if (idade >= 21 && idade <= 65) { category = "Adulto"; }
             if (idade > 65) { category = "Idoso"; }
            
@@ -296,13 +298,13 @@ namespace DiagnosticoPrevio_IMC
                 rating = "Abaixo do Peso Ideal";
             } 
 
-            else if (imc >= 20 && imc <= 24)
+            else if (imc >= 20 && imc < 25)
             {              
                 rating = "Peso Normal";               
             }
 
 
-            else if (imc >= 25 && imc <= 29)
+            else if (imc >= 25 && imc < 30)
             {          
                 rating = "Excesso de Peso";             
             }
@@ -382,12 +384,12 @@ namespace DiagnosticoPrevio_IMC
                      " cardiovasculares podem estar associadas ao baixo peso.";    
             }
 
-            else if (imc >= 20 && imc <= 24)
+            else if (imc >= 20 && imc < 25)
             {         
                 effect = "Seu peso está ideal para suas referências.";
             }
 
-            else if (imc >= 25 && imc <= 29)
+            else if (imc >= 25 && imc < 30)
             {             
                 effect = "Aumento de peso apresenta risco moderado para outras doenças\n" +
                          " crônicas e cardiovasculares.";      
@@ -422,16 +424,16 @@ namespace DiagnosticoPrevio_IMC
             //O texto é atribuído à variavel effect dependendo de uma condição do resultado do imc do usuário
             if (imc < 20)
             {     
-                advice = "Inclua carboidratos simples em sua dieta, além de proteínas -\n" +
+                advice = "Inclua carboidratos simples em sua dieta, além de proteínas \n" +
                                " indispensáveis para ganho de massa magra. Procure um profissional.";
             }
 
-            else if (imc >= 20 && imc <= 24)
+            else if (imc >= 20 && imc < 25)
             {     
                 advice = "Mantenha uma dieta saudável e faça seus exames periódicos.";
             }
 
-            else if (imc >= 25 && imc <= 29)
+            else if (imc >= 25 && imc < 30)
             {     
                 advice = "Adote um tratamento baseado em dieta balanceada, exercício físico\n" +
                                " e medicação. A ajuda de um profissional pode ser interessante.";
