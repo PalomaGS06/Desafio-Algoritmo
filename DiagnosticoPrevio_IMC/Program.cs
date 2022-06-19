@@ -109,7 +109,7 @@ namespace DiagnosticoPrevio_IMC
                         Console.BackgroundColor = ConsoleColor.White;
                         Console.WriteLine("\n  Altura inválida! Por favor, tente novamente:");
                         Console.ResetColor();
-                    valida_dados = double.TryParse(Console.ReadLine().Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out altura);
+                        valida_dados = double.TryParse(Console.ReadLine().Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out altura);
                     }
 
                     //Peso
@@ -124,11 +124,14 @@ namespace DiagnosticoPrevio_IMC
                         Console.BackgroundColor = ConsoleColor.White;
                         Console.WriteLine("\n  Peso inválido! Por favor, tente novamente:");
                         Console.ResetColor();
-                       valida_dados = double.TryParse(Console.ReadLine().Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out peso);
+                        valida_dados = double.TryParse(Console.ReadLine().Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out peso);
                     }
                     Console.WriteLine("\n\n");
+
                     Rodape();
+
                     Console.WriteLine(" ");
+
                     Console.Write("\t» Deseja confirmar seus dados? Digite 'S' para ver ser resultado ou 'N' para preencher de novo: « \n\n ");
                     tentativa = Console.ReadLine();
 
@@ -145,7 +148,8 @@ namespace DiagnosticoPrevio_IMC
                     }
 
                 } while (tentativa.ToUpper() == "N");
-                Console.Clear();
+                    
+                    Console.Clear();
 
 
                 //Funções sendo chamadas e atribuídas por variáveis:              
@@ -162,7 +166,6 @@ namespace DiagnosticoPrevio_IMC
 
                 Rodape();
 
-
                 Console.Clear();
 
                 Titulo();
@@ -177,8 +180,6 @@ namespace DiagnosticoPrevio_IMC
                 Console.Write($"Resultado IMC:  {Math.Round(imc, 1)}\n\n ");
 
                 Console.Write($"Classificação IMC:  ");
-                Classificacao_Cor(classificacao);
-                Console.ResetColor();
 
                 Console.WriteLine("\n");
                 Console.Write($" Riscos:  {riscos}\n\n ");
@@ -186,7 +187,9 @@ namespace DiagnosticoPrevio_IMC
 
                     
                 Rodape();
+
                 Console.WriteLine(" ");
+
                 Console.Write("\t» Deseja realizar o Diagnóstico Prévio outra vez? Digite 'S' para confirmar ou 'N' para finalizar: « \n\n ");                         
                 tentativa = Console.ReadLine();
                 
@@ -204,14 +207,15 @@ namespace DiagnosticoPrevio_IMC
                   
             }
             while (tentativa.ToUpper() == "S");
-            Console.Clear();
 
-            if (tentativa.ToUpper() == "N")
-            {
-                Titulo();
-                Console.Write("  » Agradecemos a sua preferência! Take Care! «\n\n".PadLeft(85 , ' '));
-                Rodape();
-            }
+                Console.Clear();
+
+                if (tentativa.ToUpper() == "N")
+                {
+                    Titulo();
+                    Console.Write("  » Agradecemos a sua preferência! Take Care! «\n\n".PadLeft(85 , ' '));
+                    Rodape();
+                }
 
 
         }
@@ -271,51 +275,12 @@ namespace DiagnosticoPrevio_IMC
             return rating;
                        
             
-        } 
-
-        static void Classificacao_Cor(string rating)
-        {
-            if (rating == "Abaixo do Peso Ideal")
-            {
-                Console.ForegroundColor = ConsoleColor.Cyan;               
-                Console.Write("Abaixo do Peso Ideal");
-                Console.ResetColor();
-            }
-
-            if (rating == "Peso Normal")
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.Write("Peso Normal");
-                Console.ResetColor();
-            }
-
-            if (rating == "Excesso de Peso")
-            {
-                Console.ForegroundColor = ConsoleColor.Blue;
-                Console.Write("Excesso de Peso");
-                Console.ResetColor();
-            }
-
-            if (rating == "Obesidade")
-            {
-                Console.ForegroundColor = ConsoleColor.Yellow;   
-                Console.Write("Obesidade");
-                Console.ResetColor();
-            }
-
-            if (rating == "Super Obesidade")
-            {
-                Console.ForegroundColor = ConsoleColor.Red;    
-                Console.Write("Super Obesidade");
-                Console.ResetColor();
-            }
-
         }
 
+       
         static string Riscos (double imc)
         {
             string effect = null;
-
 
            if(imc < 20)
             {
@@ -396,6 +361,7 @@ namespace DiagnosticoPrevio_IMC
             {
                  Console.Write("<>");
             }
+
             Console.WriteLine("  ");
 
             Console.ForegroundColor = ConsoleColor.Magenta;
@@ -414,6 +380,7 @@ namespace DiagnosticoPrevio_IMC
             {
                 Console.Write("<>");
             }
+
             Console.WriteLine("  ");
 
         }
