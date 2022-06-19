@@ -101,7 +101,7 @@ namespace DiagnosticoPrevio_IMC
 
                     //Altura
                     Console.Write("\n Digite sua altura, em metros: ");
-                   valida_dados = double.TryParse(Console.ReadLine().Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out altura);
+                    valida_dados = double.TryParse(Console.ReadLine().Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out altura);
 
                     while (valida_dados == false || altura <= 0 || altura >= 2.7)
                     {
@@ -126,6 +126,7 @@ namespace DiagnosticoPrevio_IMC
                         Console.ResetColor();
                         valida_dados = double.TryParse(Console.ReadLine().Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out peso);
                     }
+
                     Console.WriteLine("\n\n");
 
                     Rodape();
@@ -215,11 +216,11 @@ namespace DiagnosticoPrevio_IMC
                 if (tentativa.ToUpper() == "N")
                 {
                     Titulo();
+
                     Console.Write("  » Agradecemos a sua preferência! Take Care! «\n\n".PadLeft(85 , ' '));
+
                     Rodape();
                 }
-
-
         }
 
         static string Categoria(int idade)
@@ -322,18 +323,18 @@ namespace DiagnosticoPrevio_IMC
         {
             string effect = null;
 
-           if(imc < 20)
+           if (imc < 20)
             {
               effect = "Muitas complicações de saúde como doenças pulmonares e \n" +
                      " cardiovasculares podem estar associadas ao baixo peso.";    
             }
 
-            else if(imc >= 20 && imc <= 24)
+            else if (imc >= 20 && imc <= 24)
             {         
                 effect = "Seu peso está ideal para suas referências.";
             }
 
-            else if(imc >= 25 && imc <= 29)
+            else if (imc >= 25 && imc <= 29)
             {             
                 effect = "Aumento de peso apresenta risco moderado para outras doenças\n" +
                          " crônicas e cardiovasculares.";      
