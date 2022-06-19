@@ -1,6 +1,9 @@
-﻿using System;
-using System.Text.RegularExpressions;
-using System.Globalization;
+﻿    //Algoritmo gerador de um Diagnóstico Prévio baseado em IMC para um programa de emagrecimento saudável
+
+    //Bibliotecas importadas abaixo:
+using System;
+using System.Text.RegularExpressions; //A função Regex é chamada através dessa biblioteca
+using System.Globalization; //A função Cultureinfo é chamada através dessa biblioteca
 
 
 namespace DiagnosticoPrevio_IMC
@@ -9,54 +12,59 @@ namespace DiagnosticoPrevio_IMC
     {
         static void Main(string[] args)
         {
-            // inserindo/declarando as variáveis. Algumas são iniciadas com valor nulo. 
-            double altura, peso, imc;
+            // Inserindo e declarando as variáveis, sendo elas de tipos double, inteiro, booleano e string
+            double altura, peso, imc; //A variável imc é responsável por calcular o IMC através das variáveis altura e peso
             int idade;
-            bool valida_dados;
-            string nome, sexo, categoria, classificacao, riscos, recomendacao, tentativa;
+            bool valida_dados; //Variável utilizada para a validação de dados do tipo numérico
+            string nome, sexo, categoria, classificacao, riscos, recomendacao, tentativa; //A variável tentativa permite de o usuário escolher prosseguir ou retornar, através de um loop
 
-            do
+            do //Loop inicial que permite o usuário de escolher entre realizar novamente o Diagnóstico Prévio ou finalizá-lo
             {             
 
-                    Titulo();
-
-                    //inserindo dados dentro de variáveis:
-                    Console.WriteLine($"» Seja Bem Vindo(a)! «".PadLeft(71, ' '));
+                    Titulo(); //Chamada da função Titulo para exibir o cabeçalho como introdução
+                       
+                    //Informações iniciais do programa
+                    Console.WriteLine($"» Seja Bem Vindo(a)! «".PadLeft(71, ' ')); //Função que centraliza o texto.
+                                                                                   //Como parâmetros, ela recebe um inteiro de 32 bits (para ajustar a posição desejada) e um char 
                     Console.WriteLine($"Aperte qualquer tecla para começar!  \n\n".PadLeft(82, ' '));
 
-                    Rodape();
+                    Rodape(); //Chamada da função Rodape criado por linhas/símbolos como referência de acabamento
 
-                    Console.ReadKey();
+                    Console.ReadKey(); //Função que fixa o valor digitado
 
-                    Console.Clear();
+                    Console.Clear(); //Limpa a tela
                 do
                 {
 
-                    Titulo();
+                    Titulo(); //Chama a função Titulo
 
-                    Console.Write(" \nPara gerarmos seu Diagnóstico Prévio, preencha seus dados abaixo: \n\n");
+                    Console.Write(" \nPara gerarmos seu Diagnóstico Prévio, preencha seus dados abaixo: \n\n"); //Pede para o usuario preencher os dados
 
 
                     //Nome
                     Console.Write("\n Digite seu nome completo: ");
-                    nome = Console.ReadLine();
+                    nome = Console.ReadLine(); //Armazena o que o usuário digitar, na variável nome
 
-                    while (string.IsNullOrWhiteSpace(nome))
-                    {
-                        Console.ForegroundColor = ConsoleColor.Black;
+                    while (string.IsNullOrWhiteSpace(nome)) //Função que não aceita espaço em branco no nome em que o usuario digitar
+                                                            //Enquanto um espaço sem letras é digitado, o programa exibe uma informação de Nome vazio 
+                    {   
+                        //Abaixo, informação de erro exibida com cor preta e cor de fundo branca
+                        Console.ForegroundColor = ConsoleColor.Black; 
                         Console.BackgroundColor = ConsoleColor.White;
                         Console.WriteLine("\n  Nome vazio! Por favor, digite de novo:");
-                        Console.ResetColor();
-                        nome = Console.ReadLine();
+                        Console.ResetColor(); //A cor atribuída é resetada, retornando a cor padrão
+                        nome = Console.ReadLine(); //Pede para o usuário digitar o nome novamente
 
                     }
-
-                    Regex letra = new Regex(@"[A-Z,a-z]");
-                    if (!letra.IsMatch(nome))
+                    //Função que permite como entrada, um valor especificado como argumento dentro do parâmetro
+                    //No caso abaixo, os valores específicos que podem entrar são somente letras de A a Z, maiúsculas e minúsculas
+                    Regex letra = new Regex(@"[A-Z a-z]");  
+                    if (!letra.IsMatch(nome)) //Sobrecarga IsMatch que determina se o valor de caracteres são válidos
+                                              //Se caso for negativo, é exibida uma mensagem de erro para o usuário
                     {
                         Console.ForegroundColor = ConsoleColor.Black;
                         Console.BackgroundColor = ConsoleColor.White;
-                        Console.WriteLine("\n  Nome inexistente! Por favor, insira novamente:");
+                        Console.WriteLine("\n  Nome inexistente! Por favor, insira novamente:"); //Mensagem de erro caso o usuário digitar um número
                         Console.ResetColor();
                         Console.ReadLine();
                     }
