@@ -13,7 +13,7 @@ namespace DiagnosticoPrevio_IMC
             double altura, peso, imc;
             int idade;
             bool valida_dados;
-            string nome, sexo, categoria, classificacao, riscos, recomendacao, tentativa=null;
+            string nome, sexo, categoria, classificacao, riscos, recomendacao, tentativa;
 
             do
             {             
@@ -95,7 +95,7 @@ namespace DiagnosticoPrevio_IMC
                         Console.BackgroundColor = ConsoleColor.White;
                         Console.WriteLine("\n  Idade inválida! Por favor, tente novamente:");
                         Console.ResetColor();
-                        idade = int.Parse(Console.ReadLine());
+                        valida_dados = int.TryParse(Console.ReadLine(), out idade); 
                     }
 
 
