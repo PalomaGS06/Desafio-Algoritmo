@@ -180,6 +180,8 @@ namespace DiagnosticoPrevio_IMC
                 Console.Write($"Resultado IMC:  {Math.Round(imc, 1)}\n\n ");
 
                 Console.Write($"Classificação IMC:  ");
+                Classificacao_Cor(classificacao);
+                Console.ResetColor();
 
                 Console.WriteLine("\n");
                 Console.Write($" Riscos:  {riscos}\n\n ");
@@ -277,7 +279,45 @@ namespace DiagnosticoPrevio_IMC
             
         }
 
-       
+        static void Classificacao_Cor(string rating)
+        {
+            if (rating == "Abaixo do Peso Ideal")
+            {
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.Write("Abaixo do Peso Ideal");
+                Console.ResetColor();
+            }
+
+            if (rating == "Peso Normal")
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Write("Peso Normal");
+                Console.ResetColor();
+            }
+
+            if (rating == "Excesso de Peso")
+            {
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.Write("Excesso de Peso");
+                Console.ResetColor();
+            }
+
+            if (rating == "Obesidade")
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write("Obesidade");
+                Console.ResetColor();
+            }
+
+            if (rating == "Super Obesidade")
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write("Super Obesidade");
+                Console.ResetColor();
+            }
+
+        }
+
         static string Riscos (double imc)
         {
             string effect = null;
@@ -314,7 +354,6 @@ namespace DiagnosticoPrevio_IMC
             return effect;
 
         }
-
 
         static string Recomendacao (double imc)
         {
