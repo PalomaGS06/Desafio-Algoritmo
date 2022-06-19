@@ -47,30 +47,29 @@ namespace DiagnosticoPrevio_IMC
                     nome = Console.ReadLine(); //Armazena o que o usuário digitar, na variável nome
 
                     while (string.IsNullOrWhiteSpace(nome)) //Função que não aceita espaço em branco no nome em que o usuario digitar
-                                                            //Enquanto um espaço sem letras é digitado, o programa exibe uma informação de Nome vazio 
-                    {   
+                                                         //Enquanto um espaço sem letras é digitado, o programa exibe uma informação de Nome vazio 
+                    {
                         //Abaixo, informação de erro exibida com cor preta e cor de fundo branca
-                        Console.ForegroundColor = ConsoleColor.Black; 
+                        Console.ForegroundColor = ConsoleColor.Black;
                         Console.BackgroundColor = ConsoleColor.White;
                         Console.WriteLine("\n  Nome vazio! Por favor, digite de novo:");
                         Console.ResetColor(); //A cor estabelecida acima é resetada, retornando a cor padrão
                         nome = Console.ReadLine(); //Pede para o usuário digitar o nome novamente
-
                     }
-                    //Função que permite como entrada, um valor especificado como argumento dentro do parâmetro
-                    //No caso abaixo, os valores específicos que podem entrar são somente letras de A a Z, maiúsculas e minúsculas
-                    Regex letra = new Regex(@"[A-Z a-z]");  
-                    if (!letra.IsMatch(nome)) //Sobrecarga IsMatch determina se o valor de caracteres especificados é válido
-                                              //Se caso for negativo, é exibida uma mensagem de erro para o usuário
+                    
+                        //Função que permite como entrada, um valor especificado como argumento dentro do parâmetro
+                        //No caso abaixo, os valores específicos que podem entrar são somente letras de A a Z, maiúsculas e minúsculas
+                        Regex letra = new Regex(@"[A-Z a-z]");
+                    while (!letra.IsMatch(nome)) //Sobrecarga IsMatch determina se o valor de caracteres especificados é válido
+                                                  //Se caso for negativo, é exibida uma mensagem de erro para o usuário
                     {
-                        Console.ForegroundColor = ConsoleColor.Black;
-                        Console.BackgroundColor = ConsoleColor.White;
-                        Console.WriteLine("\n  Nome inexistente! Por favor, insira novamente:"); //Mensagem de erro caso o usuário digitar um número ou caractere
-                        Console.ResetColor();
-                        Console.ReadLine(); //Permite o usuário digitar um valor válido no nome
+                         Console.ForegroundColor = ConsoleColor.Black;
+                         Console.BackgroundColor = ConsoleColor.White;
+                         Console.WriteLine("\n  Nome inexistente! Por favor, insira novamente:"); //Mensagem de erro caso o usuário digitar um número ou caractere
+                         Console.ResetColor();
+                         nome = Console.ReadLine(); //Permite o usuário digitar um valor válido no nome
                     }
-
-
+                   
                     //Sexo a ser inserido pelo usuário
                     Console.Write("\n Digite seu sexo (M para masculino e F para feminino): ");
                     sexo = Console.ReadLine(); //Guarda o dado digitado na variável sexo e exibe posteriormente qual o gênero que o usuário digitou
