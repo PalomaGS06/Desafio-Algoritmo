@@ -52,8 +52,9 @@ namespace DiagnosticoPrevio_IMC
                         //Abaixo, informação de erro exibida com cor preta e cor de fundo branca
                         Console.ForegroundColor = ConsoleColor.Black;
                         Console.BackgroundColor = ConsoleColor.White;
-                        Console.WriteLine("\n  Nome vazio! Por favor, digite de novo:");
-                        Console.ResetColor(); //A cor estabelecida acima é resetada, retornando a cor padrão
+                        Console.Write("\n  Nome vazio! Por favor, digite de novo:");
+                        Console.ResetColor();//A cor estabelecida acima é resetada, retornando a cor padrão
+                        Console.Write(" ");
                         nome = Console.ReadLine(); //Pede para o usuário digitar o nome novamente
                     }
                     
@@ -65,8 +66,9 @@ namespace DiagnosticoPrevio_IMC
                     {
                          Console.ForegroundColor = ConsoleColor.Black;
                          Console.BackgroundColor = ConsoleColor.White;
-                         Console.WriteLine("\n  Nome inexistente! Por favor, insira novamente:"); //Mensagem de erro caso o usuário digitar um número ou caractere
+                         Console.Write("\n  Nome inexistente! Por favor, insira novamente:"); //Mensagem de erro caso o usuário digitar um número ou caractere
                          Console.ResetColor();
+                         Console.Write(" ");
                          nome = Console.ReadLine(); //Permite o usuário digitar um valor válido no nome
                     }
                    
@@ -81,7 +83,7 @@ namespace DiagnosticoPrevio_IMC
                     {
                         Console.ForegroundColor = ConsoleColor.Black;
                         Console.BackgroundColor = ConsoleColor.White;
-                        Console.WriteLine("\n  Dado inválido! por favor, tente novamente:");
+                        Console.Write("\n  Dado inválido! por favor, tente novamente:");
                         Console.ResetColor();
                         sexo = Console.ReadLine(); //Permite o usuário digitar um valor válido
 
@@ -106,8 +108,9 @@ namespace DiagnosticoPrevio_IMC
                     {
                         Console.ForegroundColor = ConsoleColor.Black;
                         Console.BackgroundColor = ConsoleColor.White;
-                        Console.WriteLine("\n  Idade inválida! Por favor, tente novamente:");
+                        Console.Write("\n  Idade inválida! Por favor, tente novamente, utilize apenas números inteiros:");
                         Console.ResetColor();
+                        Console.Write(" ");
                         valida_dados = int.TryParse(Console.ReadLine(), out idade); //Permite o usuário digitar o valor novamente
                     }
 
@@ -124,8 +127,9 @@ namespace DiagnosticoPrevio_IMC
                     {
                         Console.ForegroundColor = ConsoleColor.Black;
                         Console.BackgroundColor = ConsoleColor.White;
-                        Console.WriteLine("\n  Altura inválida! Por favor, tente novamente:");
+                        Console.Write("\n  Altura inválida! Por favor, tente novamente, utilize apenas números inteiros ou com vírgula:");
                         Console.ResetColor();
+                        Console.Write(" ");
                         //Permite ao usuário digitar novamente a altura, separando as casas decimais tanto com vírgula como com ponto
                         valida_dados = double.TryParse(Console.ReadLine().Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out altura);
                     }
@@ -140,8 +144,9 @@ namespace DiagnosticoPrevio_IMC
                     {
                         Console.ForegroundColor = ConsoleColor.Black;
                         Console.BackgroundColor = ConsoleColor.White;
-                        Console.WriteLine("\n  Peso inválido! Por favor, tente novamente:"); //Mensagem de erro
+                        Console.Write("\n  Peso inválido! Por favor, tente novamente, utilize apenas números inteiros ou com vírgula:"); //Mensagem de erro
                         Console.ResetColor();
+                        Console.Write(" ");
                         valida_dados = double.TryParse(Console.ReadLine().Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out peso);
                     }
 
