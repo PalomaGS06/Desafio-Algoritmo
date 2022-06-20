@@ -49,11 +49,11 @@ namespace DiagnosticoPrevio_IMC
                     while (string.IsNullOrWhiteSpace(nome)) //Função que não aceita espaço em branco no nome em que o usuario digitar
                                                          //Enquanto um espaço sem letras é digitado, o programa exibe uma informação de Nome vazio 
                     {
-                        Console.Write("  ");
+                        Console.Write("\n");
                         //Abaixo, informação de erro exibida com cor preta e cor de fundo branca
                         Console.ForegroundColor = ConsoleColor.Black;
                         Console.BackgroundColor = ConsoleColor.White;
-                        Console.Write("\n  Nome vazio! Por favor, digite de novo:");
+                        Console.Write("Nome vazio! Por favor, digite de novo:");
                         Console.ResetColor();//A cor estabelecida acima é resetada, retornando a cor padrão
                         Console.Write("  ");
                         nome = Console.ReadLine(); //Pede para o usuário digitar o nome novamente
@@ -64,10 +64,10 @@ namespace DiagnosticoPrevio_IMC
                         Regex letra = new Regex(@"[A-Z a-z]");
                     while (!letra.IsMatch(nome)) //Sobrecarga IsMatch determina se o valor de caracteres especificados é válido
                                                   //Se caso for negativo, é exibida uma mensagem de erro para o usuário
-                    {    Console.Write("  ");
+                    {    Console.Write("\n");
                          Console.ForegroundColor = ConsoleColor.Black;
                          Console.BackgroundColor = ConsoleColor.White;
-                         Console.Write("\n  Nome inexistente! Por favor, insira novamente:"); //Mensagem de erro caso o usuário digitar um número ou caractere
+                         Console.Write("Nome inexistente! Por favor, insira novamente:"); //Mensagem de erro caso o usuário digitar um número ou caractere
                          Console.ResetColor();
                          Console.Write("  ");
                          nome = Console.ReadLine(); //Permite o usuário digitar um valor válido no nome
@@ -82,10 +82,10 @@ namespace DiagnosticoPrevio_IMC
                                                                             //Essa função faz com que aceite tanto letras minúsculas quanto maiúsculas
                                                                             //digitadas pelo usuário
                     {
-                        Console.Write("  ");
+                        Console.Write("\n");
                         Console.ForegroundColor = ConsoleColor.Black;
                         Console.BackgroundColor = ConsoleColor.White;
-                        Console.Write("\n  Dado inválido! por favor, tente novamente apenas utilizando as letras 'M' ou 'F':");
+                        Console.Write("Dado inválido! por favor, tente novamente apenas utilizando as letras 'M' ou 'F':");
                         Console.ResetColor();
                         Console.Write("  ");
                         sexo = Console.ReadLine(); //Permite o usuário digitar um valor válido
@@ -109,10 +109,10 @@ namespace DiagnosticoPrevio_IMC
                     //Enquanto a validação for falsa e a idade menor ou igual a zero ou maior que 150, é exibida uma mensagem de erro
                     while (valida_dados == false || idade < 1 || idade > 150)
                     {
-                        Console.Write("  ");
+                        Console.Write("\n");
                         Console.ForegroundColor = ConsoleColor.Black;
                         Console.BackgroundColor = ConsoleColor.White;
-                        Console.Write("\n  Idade inválida! Por favor, tente novamente, utilize apenas números inteiros (entre 1 a 150 anos):");
+                        Console.Write("Idade inválida! Por favor, tente novamente, utilize apenas números inteiros (entre 1 a 150 anos):");
                         Console.ResetColor();
                         Console.Write("  ");
                         valida_dados = int.TryParse(Console.ReadLine(), out idade); //Permite o usuário digitar o valor novamente
@@ -129,10 +129,10 @@ namespace DiagnosticoPrevio_IMC
                     //Limites e validação para a altura através do loop while
                     while (valida_dados == false || altura < 1 || altura >= 2.7)
                     {
-                        Console.Write("  ");
+                        Console.Write("\n");
                         Console.ForegroundColor = ConsoleColor.Black;
                         Console.BackgroundColor = ConsoleColor.White;
-                        Console.Write("\n  Altura inválida! Por favor, tente novamente, utilize apenas números inteiros ou com vírgula (entre 1 a 2.7 m):");
+                        Console.Write("Altura inválida! Por favor, tente novamente, utilize apenas números inteiros ou com vírgula (entre 1 a 2.7 m):");
                         Console.ResetColor();
                         Console.Write("  ");
                         //Permite ao usuário digitar novamente a altura, separando as casas decimais tanto com vírgula como com ponto
@@ -147,10 +147,10 @@ namespace DiagnosticoPrevio_IMC
                     //Limites e validação para o peso através do loop while
                     while (valida_dados == false|| peso < 1 || peso >= 700)
                     {
-                        Console.Write("  ");
+                        Console.Write("\n");
                         Console.ForegroundColor = ConsoleColor.Black;
                         Console.BackgroundColor = ConsoleColor.White;
-                        Console.Write("\n  Peso inválido! Por favor, tente novamente, utilize apenas números inteiros ou com vírgula (entre 1 a 700 Kg):"); //Mensagem de erro
+                        Console.Write("Peso inválido! Por favor, tente novamente, utilize apenas números inteiros ou com vírgula (entre 1 a 700 Kg):"); //Mensagem de erro
                         Console.ResetColor();
                         Console.Write("  ");
                         valida_dados = double.TryParse(Console.ReadLine().Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out peso);
@@ -171,10 +171,10 @@ namespace DiagnosticoPrevio_IMC
                     while (tentativa.ToUpper() != "S" && tentativa.ToUpper() != "N") //Loop para caso o usuário digitar letras diferentes das
                                                                                      //correspondidas acima, exibirá uma mensagem de erro
                     {
-                        Console.Write("  ");
+                        Console.Write("\n");
                         Console.ForegroundColor = ConsoleColor.Black;
                         Console.BackgroundColor = ConsoleColor.White;
-                        Console.Write("\n   Escolha inválida. Por favor, digite 'S' para avançar ou 'N' para preencher novamente: ");
+                        Console.Write("Escolha inválida. Por favor, digite 'S' para avançar ou 'N' para preencher novamente: ");
                         Console.ResetColor();
                         Console.Write("  ");
                         tentativa = Console.ReadLine();
@@ -222,7 +222,7 @@ namespace DiagnosticoPrevio_IMC
 
                 Console.WriteLine("\n");
                 Console.Write($" Riscos:  {riscos}\n\n ");
-                Console.Write($"Recomendação Inicial:  {recomendacao}\n\n\n ");
+                Console.Write($"Recomendação Inicial:  {recomendacao}\n\n\n");
 
                     
                 Rodape();
@@ -238,10 +238,10 @@ namespace DiagnosticoPrevio_IMC
                                                                                //Se for digitada uma letra diferente da correspondente acima, o console
                                                                                //exibirá uma mensagem de erro
                 {
-                    Console.Write("  ");
+                    Console.Write("\n");
                     Console.ForegroundColor = ConsoleColor.Black;
                     Console.BackgroundColor = ConsoleColor.White;
-                    Console.WriteLine("\n   Escolha inválida. Por favor, digite 'S' para confirmar ou 'N' para finalizar o programa: ");
+                    Console.WriteLine("Escolha inválida. Por favor, digite 'S' para confirmar ou 'N' para finalizar o programa: ");
                     Console.ResetColor();
                     Console.Write("  ");
                     tentativa = Console.ReadLine(); //Permitir que o usuário digite outra letra
