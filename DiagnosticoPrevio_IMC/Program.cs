@@ -132,7 +132,7 @@ namespace DiagnosticoPrevio_IMC
                         Console.Write("\n");
                         Console.ForegroundColor = ConsoleColor.Black;
                         Console.BackgroundColor = ConsoleColor.White;
-                        Console.Write("Altura inválida! Por favor, tente novamente, utilize apenas números inteiros ou com vírgula (entre 1 a 2.7 m):");
+                        Console.Write("Altura inválida! Por favor, tente novamente, utilize apenas números inteiros ou com vírgula (entre 1 a 2,7 m):");
                         Console.ResetColor();
                         Console.Write("  ");
                         //Permite ao usuário digitar novamente a altura, separando as casas decimais tanto com vírgula como com ponto
@@ -162,7 +162,7 @@ namespace DiagnosticoPrevio_IMC
 
                     Console.WriteLine(" "); //Pula de linha. Acrescenta uma linha em branco
 
-                    Console.Write("\t» Deseja confirmar seus dados? Digite 'S' para ver ser resultado ou 'N' para preencher de novo: « \n\n ");
+                    Console.Write("\t» Deseja confirmar seus dados? Digite 'S' para ver seu resultado ou 'N' para preencher de novo: « \n\n ");
                     tentativa = Console.ReadLine(); //variável que vai receber a letra informada pelo usuário
 
                     Console.Clear(); //Limpa a tela
