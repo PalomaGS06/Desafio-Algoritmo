@@ -49,6 +49,7 @@ namespace DiagnosticoPrevio_IMC
                     while (string.IsNullOrWhiteSpace(nome)) //Função que não aceita espaço em branco no nome em que o usuario digitar
                                                          //Enquanto um espaço sem letras é digitado, o programa exibe uma informação de Nome vazio 
                     {
+                        Console.Write("  ");
                         //Abaixo, informação de erro exibida com cor preta e cor de fundo branca
                         Console.ForegroundColor = ConsoleColor.Black;
                         Console.BackgroundColor = ConsoleColor.White;
@@ -63,7 +64,7 @@ namespace DiagnosticoPrevio_IMC
                         Regex letra = new Regex(@"[A-Z a-z]");
                     while (!letra.IsMatch(nome)) //Sobrecarga IsMatch determina se o valor de caracteres especificados é válido
                                                   //Se caso for negativo, é exibida uma mensagem de erro para o usuário
-                    {
+                    {    Console.Write("  ");
                          Console.ForegroundColor = ConsoleColor.Black;
                          Console.BackgroundColor = ConsoleColor.White;
                          Console.Write("\n  Nome inexistente! Por favor, insira novamente:"); //Mensagem de erro caso o usuário digitar um número ou caractere
@@ -81,6 +82,7 @@ namespace DiagnosticoPrevio_IMC
                                                                             //Essa função faz com que aceite tanto letras minúsculas quanto maiúsculas
                                                                             //digitadas pelo usuário
                     {
+                        Console.Write("  ");
                         Console.ForegroundColor = ConsoleColor.Black;
                         Console.BackgroundColor = ConsoleColor.White;
                         Console.Write("\n  Dado inválido! por favor, tente novamente apenas utilizando as letras 'M' ou 'F':");
@@ -105,8 +107,9 @@ namespace DiagnosticoPrevio_IMC
                                                                                //Faz a validação, caso for true, atribui na variável valida_dados
 
                     //Enquanto a validação for falsa e a idade menor ou igual a zero ou maior que 150, é exibida uma mensagem de erro
-                    while (valida_dados == false || idade <= 0 || idade > 150)
+                    while (valida_dados == false || idade < 1 || idade > 150)
                     {
+                        Console.Write("  ");
                         Console.ForegroundColor = ConsoleColor.Black;
                         Console.BackgroundColor = ConsoleColor.White;
                         Console.Write("\n  Idade inválida! Por favor, tente novamente, utilize apenas números inteiros (entre 1 a 150 anos):");
@@ -124,8 +127,9 @@ namespace DiagnosticoPrevio_IMC
                     valida_dados = double.TryParse(Console.ReadLine().Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out altura);
 
                     //Limites e validação para a altura através do loop while
-                    while (valida_dados == false || altura <= 0 || altura >= 2.7)
+                    while (valida_dados == false || altura < 1 || altura >= 2.7)
                     {
+                        Console.Write("  ");
                         Console.ForegroundColor = ConsoleColor.Black;
                         Console.BackgroundColor = ConsoleColor.White;
                         Console.Write("\n  Altura inválida! Por favor, tente novamente, utilize apenas números inteiros ou com vírgula (entre 1 a 2.7 m):");
@@ -141,8 +145,9 @@ namespace DiagnosticoPrevio_IMC
 
 
                     //Limites e validação para o peso através do loop while
-                    while (valida_dados == false|| peso <= 0 || peso >= 700)
+                    while (valida_dados == false|| peso < 1 || peso >= 700)
                     {
+                        Console.Write("  ");
                         Console.ForegroundColor = ConsoleColor.Black;
                         Console.BackgroundColor = ConsoleColor.White;
                         Console.Write("\n  Peso inválido! Por favor, tente novamente, utilize apenas números inteiros ou com vírgula (entre 1 a 700 Kg):"); //Mensagem de erro
