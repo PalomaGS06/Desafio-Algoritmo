@@ -17,4 +17,4 @@
   - While/ Do While/ For;
   - Utilizadas para realizar validações e limitações dos dados que o usuário inserir.
 - Lógica de Programação para a análise de dados e para a construção do programa;
-- Funções e médotos para melhor organização e facilitação do código. 
+- Funções e métodos para melhor organização e facilitação do código. 
