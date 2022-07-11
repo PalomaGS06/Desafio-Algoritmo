@@ -190,15 +190,15 @@ namespace DiagnosticoPrevio_IMC
 
                 //Funções sendo chamadas e atribuídas por variáveis:          
 
-                categoria = Categoria(idade);
+                categoria = definirCategoria(idade);
 
-                imc = IMC(peso, altura);
+                imc = calcularIMC(peso, altura);
 
-                classificacao = Classificacao(imc);
+                classificacao = exibirClassificacao(imc);
 
-                riscos = Riscos(imc);
+                riscos = apresentarRiscos(imc);
 
-                recomendacao = Recomendacao(imc);
+                recomendacao = apresentarRecomendacao(imc);
 
                 Rodape(); 
 
@@ -216,9 +216,9 @@ namespace DiagnosticoPrevio_IMC
                 Console.Write($"IMC Desejável:  entre 20 a 24\n\n ");
                 Console.Write($"Resultado IMC:  {Math.Round(imc, 1)}\n\n ");
 
-                Console.Write($"Classificação IMC:  "); 
-                Classificacao_Cor(classificacao); //Função de cor que carrega como parâmetro, a variável classificação na qual está atribuída pela função 'Classificação'                                                  
-                Console.ResetColor(); //Cor definida dentro da função Classificacao_cor é resetada(restaura as cores padrão do terminal)
+                Console.Write($"Classificação IMC:  ");
+                classificarCor(classificacao); //Função de cor que carrega como parâmetro, a variável classificação na qual está atribuída pela função 'Classificação'                                                  
+                Console.ResetColor(); //Cor definida dentro da função classificarCor é resetada(restaura as cores padrão do terminal)
 
                 Console.WriteLine("\n");
                 Console.Write($" Riscos:  {riscos}\n\n ");
@@ -268,7 +268,7 @@ namespace DiagnosticoPrevio_IMC
         /// </summary>
         /// <param name="idade"></param>
         /// <returns>Retorna a categoria compatível ao usuário</returns>
-        static string Categoria(int idade)
+        static string definirCategoria(int idade)
         {
             string category = null; //variável iniciada como nula
             //Categorias correspondentes às idades definidas, através de uma estrutura condicional
@@ -287,7 +287,7 @@ namespace DiagnosticoPrevio_IMC
         /// <param name="peso"></param> 
         /// <param name="altura"></param>
         /// <returns>Retorna o resultado do imc calculado</returns>
-        static double IMC (double peso, double altura)
+        static double calcularIMC (double peso, double altura)
         {
             double imc;
             imc = (peso / Math.Pow(altura, 2)); //Função de exponenciação/Potência, no qual calcula a base e o expoente: Math.Pow(base, expoente)
@@ -301,7 +301,7 @@ namespace DiagnosticoPrevio_IMC
         /// </summary>
         /// <param name="imc"></param>
         /// <returns>Retorna a classificação correspondente</returns>
-        static string Classificacao (double imc)
+        static string exibirClassificacao (double imc)
         {
             string rating = null;
 
@@ -341,7 +341,7 @@ namespace DiagnosticoPrevio_IMC
         /// Função que exibe cada tipo de classificação com uma cor correspondente a uma intensidade de risco
         /// </summary>
         /// <param name="rating"></param>
-        static void Classificacao_Cor(string rating)
+        static void classificarCor(string rating)
         {
             //Caso a classificação for abaixo do peso, a mensagem é exibida na cor ciano
             if (rating == "Abaixo do Peso Ideal")
@@ -386,7 +386,7 @@ namespace DiagnosticoPrevio_IMC
         /// </summary>
         /// <param name="imc"></param>
         /// <returns>Retorna o risco estimado</returns>
-        static string Riscos (double imc)
+        static string apresentarRiscos (double imc)
         {
             string effect = null;
 
@@ -429,7 +429,7 @@ namespace DiagnosticoPrevio_IMC
         /// </summary>
         /// <param name="imc"></param>
         /// <returns>Retorna a recomendação estimada</returns>
-        static string Recomendacao (double imc)
+        static string apresentarRecomendacao(double imc)
         {
 
             string advice = null;
